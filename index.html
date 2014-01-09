@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <link rel="stylesheet" href="css/idangerous.swiper.css">
+  <style>
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+/* Demo Styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  background-color: black;
+    color: #F5DEB3 !important;
+}
+
+
+.maskDiv
+{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	opacity: 0.8;
+}
+
+.swiper-container {
+  width: 660px;
+  height: 250px;
+  color: #fff;
+  text-align: center;
+}
+.swiper-nested-1, .swiper-nested-2 {
+  width: 100%;
+}
+.red-slide {
+  background: #ca4040;
+  background-color: black;
+}
+.blue-slide {
+  background: #4390ee;
+  background-color: black;
+}
+.orange-slide {
+  background: #ff8604;
+}
+.green-slide {
+  background: #49a430;
+}
+.pink-slide {
+  background: #973e76;
+}
+.swiper-slide {
+  font-style: italic;
+  font-size: 42px;
+  margin-bottom: 0;
+  line-height: 250px;
+}
+.swiper-nested-1 .swiper-slide, .swiper-nested-2 .swiper-slide {
+  line-height: 125px;
+  font-size: 21px
+}
+.pagination {
+  position: absolute;
+  z-index: 100;
+  left: 10px;
+  bottom: 10px;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+.pagination-nested-1, .pagination-nested-2 {
+  bottom: auto;
+  top: 10px;
+}
+.pagination-nested-1 .swiper-pagination-switch, .pagination-nested-2 .swiper-pagination-switch {
+  display: block;
+  margin-right: 0;
+  margin-bottom: 5px;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="swiper-container swiper-parent">
+    <div class="pagination pagination-parent"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide0"> <img  src="img1.jpg" alt="Mint News">Slide 0 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide1"> <img  src="img1.jpg" alt="Mint News">Slide 1 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide2"> <img  src="img1.jpg" alt="Mint News">Slide 2 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide3"> <img  src="img1.jpg" alt="Mint News">Slide 3 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide4"> <img  src="img1.jpg" alt="Mint News">Slide 4 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide5"> <img  src="img1.jpg" alt="Mint News">Slide 5 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide6"> <img  src="img1.jpg" alt="Mint News">Slide 6 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide7"> <img  src="img1.jpg" alt="Mint News">Slide 7 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide8"> <img  src="img1.jpg" alt="Mint News">Slide 8 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide9"> <img  src="img1.jpg" alt="Mint News">Slide 9 </div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide10"> <img  src="img1.jpg" alt="Mint News">Slide 10</div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide11"> <img  src="img1.jpg" alt="Mint News">Slide 11</div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide12"> <img  src="img1.jpg" alt="Mint News">Slide 12</div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide13"> <img  src="img1.jpg" alt="Mint News">Slide 13</div></div>
+      <div class="swiper-slide blue-slide"><div class="page-inner" page-id="slide14"> <img  src="img1.jpg" alt="Mint News">Slide 14</div></div>
+    </div>
+  </div>
+  <div class="maskDiv">q	
+  </div>
+  <div onclick="test1()">Get Slide state</div>
+  <div onclick="test2()">Get Slide state After Advrt add</div>
+  <script src="js/jquery-1.10.1.min.js"></script>
+  <script src="js/idangerous.swiper-2.4.min.js"></script>
+  <script>
+
+	var swiperParent;
+	mainParent();
+
+var slideCount = 1;
+var addAppeared = 0;
+var swipeNext = 0;
+var swipePrev = 0;
+
+function mainParent()
+{
+ $('.maskDiv').hide();
+	 	swiperParent = new Swiper('.swiper-parent',{
+		    keyboardControl: true,
+		    loop : true,
+		    mode:'horizontal', 
+		    initialSlide : 0,
+		    slidesPerView: 1,
+		    onSlideChangeStart : function () {
+				 //$('.maskDiv').show();
+			 },
+		    onSlideChangeEnd : function () 
+		    {
+		    	console.log((new Date()).getTime())
+			 }
+	  	});
+	  	
+	  	swiperParent.wrapperTransitionEnd(function () {
+			
+		},true); 
+  		
+}
+  
+  </script>
+
+</body>
+</html>
